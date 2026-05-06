@@ -1,0 +1,13 @@
+{
+  "projectName": "Homemade Jwellery Storefront",
+  "pages": ["app", "app/api"],
+  "components": ["components", "components/ui"],
+  "assets": ["public/assets", "public/images"],
+  "layouts": ["app/layouts"],
+  "styles": ["app", "styles"],
+  "utils": ["lib", "utils"],
+  "hooks": ["hooks"],
+  "contexts": ["contexts"],
+  "services": ["services"],
+  "types": ["types"]
+}

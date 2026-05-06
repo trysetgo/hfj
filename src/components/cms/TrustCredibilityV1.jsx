@@ -1,16 +1,9 @@
 "use client";
 
-import React from "react";
-import PropTypes from "prop-types";
-import {
-  ShieldCheck,
-  Star,
-  Award,
-  CheckCircle,
-  TrendingUp,
-  Users,
-} from "lucide-react";
-import { motion } from "framer-motion";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ShieldCheck, Star, Award, CheckCircle, TrendingUp, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const iconMap = {
   ShieldCheck,
@@ -18,22 +11,21 @@ const iconMap = {
   Award,
   CheckCircle,
   TrendingUp,
-  Users,
+  Users
 };
 
 export const trustCredibilityV1DefaultProps = {
-  variant: "iconRow", // iconRow, cardGrid, minimal, testimonial, stats
+  variant: 'iconRow', // iconRow, cardGrid, minimal, testimonial, stats
   theme: {
-    mode: "light",
-    primary: "#2563EB",
-    secondary: "#111827",
-    accent: "#7C3AED",
-    background: "#ffffff",
-    surface: "#F9FAFB",
+    mode: 'light',
+    primary: '#2563EB',
+    secondary: '#111827',
+    accent: '#7C3AED',
+    background: '#ffffff',
+    surface: '#F9FAFB'
   },
   title: "Trusted by industry leaders",
-  subtitle:
-    "Join thousands of satisfied customers who trust us with their business.",
+  subtitle: "Join thousands of satisfied customers who trust us with their business.",
   items: [
     {
       id: "1",
@@ -43,7 +35,7 @@ export const trustCredibilityV1DefaultProps = {
       value: "99.9%",
       label: "Uptime",
       rating: 5,
-      verified: true,
+      verified: true
     },
     {
       id: "2",
@@ -53,7 +45,7 @@ export const trustCredibilityV1DefaultProps = {
       value: "50+",
       label: "Awards",
       rating: 5,
-      verified: true,
+      verified: true
     },
     {
       id: "3",
@@ -63,7 +55,7 @@ export const trustCredibilityV1DefaultProps = {
       value: "10k+",
       label: "Reviews",
       rating: 5,
-      verified: true,
+      verified: true
     },
     {
       id: "4",
@@ -73,36 +65,27 @@ export const trustCredibilityV1DefaultProps = {
       value: "200%",
       label: "Growth",
       rating: 5,
-      verified: true,
-    },
+      verified: true
+    }
   ],
   containerMaxWidth: "max-w-7xl",
   padding: "py-16 px-4 sm:px-6 lg:px-8",
-  enableAnimations: true,
+  enableAnimations: true
 };
 
 const TrustCredibilityV1 = (props) => {
   const p = { ...trustCredibilityV1DefaultProps, ...props };
-  const {
-    variant,
-    theme,
-    title,
-    subtitle,
-    items,
-    containerMaxWidth,
-    padding,
-    enableAnimations,
-  } = p;
+  const { variant, theme, title, subtitle, items, containerMaxWidth, padding, enableAnimations } = p;
   const isPreviewing = props.isPreviewing !== false;
 
   const MotionDiv = enableAnimations && !isPreviewing ? motion.div : "div";
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
   };
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
   const renderIcon = (iconName, className) => {
@@ -114,10 +97,7 @@ const TrustCredibilityV1 = (props) => {
     return (
       <div className="flex gap-1 text-yellow-400">
         {[...Array(5)].map((_, i) => (
-          <Star
-            key={i}
-            className={`w-5 h-5 ${i < Math.floor(rating) ? "fill-current" : "text-gray-300"}`}
-          />
+          <Star key={i} className={`w-5 h-5 ${i < Math.floor(rating) ? 'fill-current' : 'text-gray-300'}`} />
         ))}
       </div>
     );
@@ -125,165 +105,67 @@ const TrustCredibilityV1 = (props) => {
 
   const renderContent = () => {
     switch (variant) {
-      case "iconRow":
+      case 'iconRow':
         return (
-          <MotionDiv
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-8 md:gap-16"
-          >
+          <MotionDiv variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-wrap justify-center gap-8 md:gap-16">
             {items.map((item, idx) => (
-              <motion.div
-                key={item.id || idx}
-                variants={itemVariants}
-                className="flex flex-col items-center text-center gap-3"
-              >
-                <div
-                  className="p-4 rounded-full"
-                  style={{
-                    backgroundColor: `${theme.primary}15`,
-                    color: theme.primary,
-                  }}
-                >
+              <motion.div key={item.id || idx} variants={itemVariants} className="flex flex-col items-center text-center gap-3">
+                <div className="p-4 rounded-full" style={{ backgroundColor: `${theme.primary}15`, color: theme.primary }}>
                   {renderIcon(item.icon, "w-8 h-8")}
                 </div>
                 <div>
-                  <h4
-                    className="font-semibold text-lg"
-                    style={{ color: theme.secondary }}
-                  >
-                    {item.title}
-                  </h4>
+                  <h4 className="font-semibold text-lg" style={{ color: theme.secondary }}>{item.title}</h4>
                 </div>
               </motion.div>
             ))}
           </MotionDiv>
         );
 
-      case "cardGrid":
+      case 'cardGrid':
         return (
-          <MotionDiv
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
+          <MotionDiv variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {items.map((item, idx) => (
-              <motion.div
-                key={item.id || idx}
-                variants={itemVariants}
-                className="p-6 rounded-2xl border transition-all hover:shadow-lg"
-                style={{
-                  backgroundColor: theme.surface,
-                  borderColor: `${theme.secondary}10`,
-                }}
-              >
-                <div
-                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-                  style={{ backgroundColor: theme.primary, color: "#fff" }}
-                >
+              <motion.div key={item.id || idx} variants={itemVariants} className="p-6 rounded-2xl border transition-all hover:shadow-lg" style={{ backgroundColor: theme.surface, borderColor: `${theme.secondary}10` }}>
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: theme.primary, color: '#fff' }}>
                   {renderIcon(item.icon, "w-6 h-6")}
                 </div>
-                <h4
-                  className="text-xl font-bold mb-2"
-                  style={{ color: theme.secondary }}
-                >
-                  {item.title}
-                </h4>
-                <p
-                  className="text-sm"
-                  style={{ color: `${theme.secondary}80` }}
-                >
-                  {item.description}
-                </p>
+                <h4 className="text-xl font-bold mb-2" style={{ color: theme.secondary }}>{item.title}</h4>
+                <p className="text-sm" style={{ color: `${theme.secondary}80` }}>{item.description}</p>
               </motion.div>
             ))}
           </MotionDiv>
         );
 
-      case "minimal":
+      case 'minimal':
         return (
-          <MotionDiv
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-12"
-          >
+          <MotionDiv variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-wrap justify-center gap-12">
             {items.map((item, idx) => (
-              <motion.div
-                key={item.id || idx}
-                variants={itemVariants}
-                className="flex items-center gap-3"
-              >
+              <motion.div key={item.id || idx} variants={itemVariants} className="flex items-center gap-3">
                 {renderIcon(item.icon, "w-6 h-6")}
-                <span
-                  className="text-lg font-medium"
-                  style={{ color: theme.secondary }}
-                >
-                  {item.title}
-                </span>
+                <span className="text-lg font-medium" style={{ color: theme.secondary }}>{item.title}</span>
               </motion.div>
             ))}
           </MotionDiv>
         );
 
-      case "testimonial":
+      case 'testimonial':
         return (
-          <MotionDiv
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
+          <MotionDiv variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {items.map((item, idx) => (
-              <motion.div
-                key={item.id || idx}
-                variants={itemVariants}
-                className="p-8 rounded-2xl shadow-sm"
-                style={{ backgroundColor: theme.surface }}
-              >
+              <motion.div key={item.id || idx} variants={itemVariants} className="p-8 rounded-2xl shadow-sm" style={{ backgroundColor: theme.surface }}>
                 {renderStars(item.rating || 5)}
-                <p
-                  className="mt-4 mb-6 text-lg italic"
-                  style={{ color: theme.secondary }}
-                >
-                  "{item.description}"
-                </p>
+                <p className="mt-4 mb-6 text-lg italic" style={{ color: theme.secondary }}>"{item.description}"</p>
                 <div className="flex items-center gap-4">
                   {item.image ? (
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
+                    <img src={item.image} alt={item.title} className="w-12 h-12 rounded-full object-cover" />
                   ) : (
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white"
-                      style={{ backgroundColor: theme.primary }}
-                    >
-                      {item.title?.charAt(0) || "U"}
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white" style={{ backgroundColor: theme.primary }}>
+                      {item.title?.charAt(0) || 'U'}
                     </div>
                   )}
                   <div>
-                    <h4
-                      className="font-bold"
-                      style={{ color: theme.secondary }}
-                    >
-                      {item.title}
-                    </h4>
-                    {item.verified && (
-                      <span
-                        className="text-xs font-medium uppercase tracking-wider"
-                        style={{ color: theme.accent }}
-                      >
-                        Verified Customer
-                      </span>
-                    )}
+                    <h4 className="font-bold" style={{ color: theme.secondary }}>{item.title}</h4>
+                    {item.verified && <span className="text-xs font-medium uppercase tracking-wider" style={{ color: theme.accent }}>Verified Customer</span>}
                   </div>
                 </div>
               </motion.div>
@@ -291,34 +173,13 @@ const TrustCredibilityV1 = (props) => {
           </MotionDiv>
         );
 
-      case "stats":
+      case 'stats':
         return (
-          <MotionDiv
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x"
-            style={{ borderColor: `${theme.secondary}15` }}
-          >
+          <MotionDiv variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x" style={{ borderColor: `${theme.secondary}15` }}>
             {items.map((item, idx) => (
-              <motion.div
-                key={item.id || idx}
-                variants={itemVariants}
-                className="px-4"
-              >
-                <div
-                  className="text-4xl md:text-5xl font-black mb-2"
-                  style={{ color: theme.primary }}
-                >
-                  {item.value}
-                </div>
-                <div
-                  className="text-sm font-semibold uppercase tracking-widest"
-                  style={{ color: `${theme.secondary}80` }}
-                >
-                  {item.label}
-                </div>
+              <motion.div key={item.id || idx} variants={itemVariants} className="px-4">
+                <div className="text-4xl md:text-5xl font-black mb-2" style={{ color: theme.primary }}>{item.value}</div>
+                <div className="text-sm font-semibold uppercase tracking-widest" style={{ color: `${theme.secondary}80` }}>{item.label}</div>
               </motion.div>
             ))}
           </MotionDiv>
@@ -334,19 +195,8 @@ const TrustCredibilityV1 = (props) => {
       <div className={`mx-auto ${containerMaxWidth} ${padding}`}>
         {(title || subtitle) && (
           <div className="text-center mb-12 max-w-3xl mx-auto">
-            {title && (
-              <h2
-                className="text-3xl md:text-4xl font-bold mb-4"
-                style={{ color: theme.secondary }}
-              >
-                {title}
-              </h2>
-            )}
-            {subtitle && (
-              <p className="text-lg" style={{ color: `${theme.secondary}80` }}>
-                {subtitle}
-              </p>
-            )}
+            {title && <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: theme.secondary }}>{title}</h2>}
+            {subtitle && <p className="text-lg" style={{ color: `${theme.secondary}80` }}>{subtitle}</p>}
           </div>
         )}
         {renderContent()}
@@ -356,13 +206,7 @@ const TrustCredibilityV1 = (props) => {
 };
 
 TrustCredibilityV1.propTypes = {
-  variant: PropTypes.oneOf([
-    "iconRow",
-    "cardGrid",
-    "minimal",
-    "testimonial",
-    "stats",
-  ]),
+  variant: PropTypes.oneOf(['iconRow', 'cardGrid', 'minimal', 'testimonial', 'stats']),
   theme: PropTypes.object,
   title: PropTypes.string,
   subtitle: PropTypes.string,
@@ -370,7 +214,7 @@ TrustCredibilityV1.propTypes = {
   containerMaxWidth: PropTypes.string,
   padding: PropTypes.string,
   enableAnimations: PropTypes.bool,
-  isPreviewing: PropTypes.bool,
+  isPreviewing: PropTypes.bool
 };
 
 export default TrustCredibilityV1;

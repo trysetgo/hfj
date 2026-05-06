@@ -75,7 +75,8 @@ export const minimalHeaderDefaultProps = {
   heroContainerBorderWidth: "2px",
   heroContentMaxWidth: "760px",
   heroTitle: "We Provide Awesome Real Estate",
-  heroSubtitle: "We provide high quality real estate for your family and future investment starts now!",
+  heroSubtitle:
+    "We provide high quality real estate for your family and future investment starts now!",
   heroTitleColor: "#0f172a",
   heroSubtitleColor: "#4b5563",
   heroTitleFontSize: "64px",
@@ -212,7 +213,11 @@ const MinimalHeader = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (viewport === "mobile" || viewport === "tablet" || viewport === "desktop") {
+    if (
+      viewport === "mobile" ||
+      viewport === "tablet" ||
+      viewport === "desktop"
+    ) {
       const forcedMobile = viewport === "mobile";
       setIsMobile(forcedMobile);
       if (!forcedMobile) {
@@ -248,7 +253,9 @@ const MinimalHeader = ({
   }, [isMobile, isMenuOpen]);
 
   const safeLinks = Array.isArray(navLinks) ? navLinks : [];
-  const safeHeroImages = Array.isArray(heroGalleryImages) ? heroGalleryImages : [];
+  const safeHeroImages = Array.isArray(heroGalleryImages)
+    ? heroGalleryImages
+    : [];
   const isHeroMode = headerMode === "hero";
   const heroImageHeight = isMobile ? "180px" : "170px";
   const heroBadgeBaseStyle = {
@@ -353,7 +360,12 @@ const MinimalHeader = ({
         <img
           src={logoSrc}
           alt={logoAlt || "Logo"}
-          style={{ height: "42px", width: "auto", objectFit: "contain", maxWidth: "180px" }}
+          style={{
+            height: "42px",
+            width: "auto",
+            objectFit: "contain",
+            maxWidth: "180px",
+          }}
         />
       ) : null}
       {logoText ? <p style={logoTextStyle}>{logoText}</p> : null}
@@ -363,7 +375,7 @@ const MinimalHeader = ({
   return (
     <section id={id} className={`relative ${className}`}>
       <header className="relative" style={headerStyle}>
-      <style>{`
+        <style>{`
         .minimal-header-link:hover {
           color: ${linkHoverColor};
           background-color: rgba(148, 163, 184, 0.14);
@@ -373,141 +385,170 @@ const MinimalHeader = ({
           background-color: rgba(148, 163, 184, 0.16);
         }
       `}</style>
-      <div style={containerStyle}>
-        {logoNode}
+        <div style={containerStyle}>
+          {logoNode}
 
-        {!isMobile && (
-          <div style={{ display: "flex", alignItems: "center", gap: navGap }}>
-            <nav aria-label="Primary navigation" style={{ display: "flex", alignItems: "center", gap: navGap }}>
-              {safeLinks.map((link, index) => (
-                <a
-                  key={link.id || `${link.text || "link"}-${index}`}
-                  href={link.href || "#"}
-                  target={link.target || "_self"}
-                  rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-                  className="minimal-header-link"
-                  style={navLinkStyle}
-                >
-                  {link.text || "Link"}
-                </a>
-              ))}
-            </nav>
-            {showCTA && (
-              <a
-                href={ctaHref || "#"}
-                target={ctaTarget || "_self"}
-                rel={ctaTarget === "_blank" ? "noopener noreferrer" : undefined}
-                style={{
-                  textDecoration: "none",
-                  backgroundColor: ctaBackgroundColor,
-                  color: ctaTextColor,
-                  fontSize: ctaFontSize,
-                  fontWeight: ctaFontWeight,
-                  borderRadius: ctaBorderRadius,
-                  padding: `${ctaPaddingY} ${ctaPaddingX}`,
-                  lineHeight: 1.2,
-                }}
+          {!isMobile && (
+            <div style={{ display: "flex", alignItems: "center", gap: navGap }}>
+              <nav
+                aria-label="Primary navigation"
+                style={{ display: "flex", alignItems: "center", gap: navGap }}
               >
-                {ctaText || "Get Started"}
-              </a>
-            )}
-          </div>
-        )}
-
-        {isMobile && showMobileMenu && (
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen((value) => !value)}
-            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            style={{
-              color: menuButtonColor,
-              background: "transparent",
-              border: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "6px",
-              borderRadius: "10px",
-              cursor: "pointer",
-            }}
-          >
-            {isMenuOpen ? <XMarkIcon className="h-7 w-7" /> : <Bars3Icon className="h-7 w-7" />}
-          </button>
-        )}
-      </div>
-
-      {isMobile && showMobileMenu && isMenuOpen && (
-        <>
-          <div
-            className="fixed inset-0"
-            style={{ backgroundColor: overlayColor, zIndex: (Number(zIndex) || 30) - 1 }}
-            onClick={() => setIsMenuOpen(false)}
-          />
-          <div
-            className="fixed top-0 right-0 h-full"
-            style={{
-              width: "min(86vw, 340px)",
-              backgroundColor: mobileMenuBackgroundColor,
-              color: mobileMenuTextColor,
-              zIndex: Number(zIndex) || 30,
-              borderLeft: `1px solid ${borderColor}`,
-              padding: "22px 18px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "12px",
-              overflowY: "auto",
-            }}
-          >
-            {logoNode}
-            <nav
-              aria-label="Mobile primary navigation"
-              style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "6px" }}
-            >
-              {safeLinks.map((link, index) => (
+                {safeLinks.map((link, index) => (
+                  <a
+                    key={link.id || `${link.text || "link"}-${index}`}
+                    href={link.href || "#"}
+                    target={link.target || "_self"}
+                    rel={
+                      link.target === "_blank"
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="minimal-header-link"
+                    style={navLinkStyle}
+                  >
+                    {link.text || "Link"}
+                  </a>
+                ))}
+              </nav>
+              {showCTA && (
                 <a
-                  key={`mobile-${link.id || `${link.text || "link"}-${index}`}`}
-                  href={link.href || "#"}
-                  target={link.target || "_self"}
-                  rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-                  className="minimal-header-mobile-link"
+                  href={ctaHref || "#"}
+                  target={ctaTarget || "_self"}
+                  rel={
+                    ctaTarget === "_blank" ? "noopener noreferrer" : undefined
+                  }
                   style={{
                     textDecoration: "none",
-                    color: mobileMenuTextColor,
-                    fontSize: navFontSize,
-                    fontWeight: navFontWeight,
-                    padding: "10px 12px",
-                    borderRadius: "10px",
+                    backgroundColor: ctaBackgroundColor,
+                    color: ctaTextColor,
+                    fontSize: ctaFontSize,
+                    fontWeight: ctaFontWeight,
+                    borderRadius: ctaBorderRadius,
+                    padding: `${ctaPaddingY} ${ctaPaddingX}`,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {ctaText || "Get Started"}
+                </a>
+              )}
+            </div>
+          )}
+
+          {isMobile && showMobileMenu && (
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((value) => !value)}
+              aria-label={
+                isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+              }
+              style={{
+                color: menuButtonColor,
+                background: "transparent",
+                border: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "6px",
+                borderRadius: "10px",
+                cursor: "pointer",
+              }}
+            >
+              {isMenuOpen ? (
+                <XMarkIcon className="h-7 w-7" />
+              ) : (
+                <Bars3Icon className="h-7 w-7" />
+              )}
+            </button>
+          )}
+        </div>
+
+        {isMobile && showMobileMenu && isMenuOpen && (
+          <>
+            <div
+              className="fixed inset-0"
+              style={{
+                backgroundColor: overlayColor,
+                zIndex: (Number(zIndex) || 30) - 1,
+              }}
+              onClick={() => setIsMenuOpen(false)}
+            />
+            <div
+              className="fixed top-0 right-0 h-full"
+              style={{
+                width: "min(86vw, 340px)",
+                backgroundColor: mobileMenuBackgroundColor,
+                color: mobileMenuTextColor,
+                zIndex: Number(zIndex) || 30,
+                borderLeft: `1px solid ${borderColor}`,
+                padding: "22px 18px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px",
+                overflowY: "auto",
+              }}
+            >
+              {logoNode}
+              <nav
+                aria-label="Mobile primary navigation"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "6px",
+                  marginTop: "6px",
+                }}
+              >
+                {safeLinks.map((link, index) => (
+                  <a
+                    key={`mobile-${link.id || `${link.text || "link"}-${index}`}`}
+                    href={link.href || "#"}
+                    target={link.target || "_self"}
+                    rel={
+                      link.target === "_blank"
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="minimal-header-mobile-link"
+                    style={{
+                      textDecoration: "none",
+                      color: mobileMenuTextColor,
+                      fontSize: navFontSize,
+                      fontWeight: navFontWeight,
+                      padding: "10px 12px",
+                      borderRadius: "10px",
+                    }}
+                    onClick={onLinkClick}
+                  >
+                    {link.text || "Link"}
+                  </a>
+                ))}
+              </nav>
+              {showCTA && (
+                <a
+                  href={ctaHref || "#"}
+                  target={ctaTarget || "_self"}
+                  rel={
+                    ctaTarget === "_blank" ? "noopener noreferrer" : undefined
+                  }
+                  style={{
+                    marginTop: "10px",
+                    textDecoration: "none",
+                    backgroundColor: ctaBackgroundColor,
+                    color: ctaTextColor,
+                    fontSize: ctaFontSize,
+                    fontWeight: ctaFontWeight,
+                    borderRadius: ctaBorderRadius,
+                    padding: `${ctaPaddingY} ${ctaPaddingX}`,
+                    textAlign: "center",
                   }}
                   onClick={onLinkClick}
                 >
-                  {link.text || "Link"}
+                  {ctaText || "Get Started"}
                 </a>
-              ))}
-            </nav>
-            {showCTA && (
-              <a
-                href={ctaHref || "#"}
-                target={ctaTarget || "_self"}
-                rel={ctaTarget === "_blank" ? "noopener noreferrer" : undefined}
-                style={{
-                  marginTop: "10px",
-                  textDecoration: "none",
-                  backgroundColor: ctaBackgroundColor,
-                  color: ctaTextColor,
-                  fontSize: ctaFontSize,
-                  fontWeight: ctaFontWeight,
-                  borderRadius: ctaBorderRadius,
-                  padding: `${ctaPaddingY} ${ctaPaddingX}`,
-                  textAlign: "center",
-                }}
-                onClick={onLinkClick}
-              >
-                {ctaText || "Get Started"}
-              </a>
-            )}
-          </div>
-        </>
-      )}
+              )}
+            </div>
+          </>
+        )}
       </header>
 
       {isHeroMode && (
@@ -515,7 +556,9 @@ const MinimalHeader = ({
           style={{
             position: "relative",
             backgroundColor: heroBackgroundColor,
-            backgroundImage: heroBackgroundImage ? `url(${heroBackgroundImage})` : undefined,
+            backgroundImage: heroBackgroundImage
+              ? `url(${heroBackgroundImage})`
+              : undefined,
             backgroundSize: "cover",
             backgroundPosition: "center",
             padding: `16px ${paddingX} ${heroSectionPaddingY}`,
@@ -540,7 +583,13 @@ const MinimalHeader = ({
               padding: isMobile ? "18px" : "28px",
             }}
           >
-            <div style={{ maxWidth: heroContentMaxWidth, margin: "0 auto", textAlign: "center" }}>
+            <div
+              style={{
+                maxWidth: heroContentMaxWidth,
+                margin: "0 auto",
+                textAlign: "center",
+              }}
+            >
               {heroTitle ? (
                 <h2
                   style={{
@@ -627,7 +676,9 @@ const MinimalHeader = ({
                 style={{
                   marginTop: "26px",
                   display: "grid",
-                  gridTemplateColumns: isMobile ? "1fr" : "repeat(3, minmax(0, 1fr))",
+                  gridTemplateColumns: isMobile
+                    ? "1fr"
+                    : "repeat(3, minmax(0, 1fr))",
                   gap: heroGalleryGap,
                 }}
               >
@@ -636,7 +687,8 @@ const MinimalHeader = ({
                   const imageHeight = heroImageHeight;
                   const linkHref = img.href || img.link;
                   const linkTarget = img.target || "_self";
-                  const linkRel = linkTarget === "_blank" ? "noopener noreferrer" : undefined;
+                  const linkRel =
+                    linkTarget === "_blank" ? "noopener noreferrer" : undefined;
                   const wrapperStyle = {
                     position: "relative",
                     borderRadius: heroImageRadius,
@@ -672,22 +724,33 @@ const MinimalHeader = ({
                   const discountPrice = img.discountPrice;
                   const originalPrice = img.price;
                   const hasPrice = Boolean(discountPrice || originalPrice);
-                  const priceContent = discountPrice
-                    ? (
-                        <div style={{ display: "flex", flexDirection: "column", gap: "2px", textAlign: "left" }}>
-                          {originalPrice ? (
-                            <span style={{ fontSize: "10px", opacity: 0.75, textDecoration: "line-through" }}>
-                              {originalPrice}
-                            </span>
-                          ) : null}
-                          <span style={{ fontSize: "14px" }}>{discountPrice}</span>
-                        </div>
-                      )
-                    : originalPrice
-                      ? (
-                          <span style={{ fontSize: "14px", fontWeight: 600 }}>{originalPrice}</span>
-                        )
-                      : null;
+                  const priceContent = discountPrice ? (
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "2px",
+                        textAlign: "left",
+                      }}
+                    >
+                      {originalPrice ? (
+                        <span
+                          style={{
+                            fontSize: "10px",
+                            opacity: 0.75,
+                            textDecoration: "line-through",
+                          }}
+                        >
+                          {originalPrice}
+                        </span>
+                      ) : null}
+                      <span style={{ fontSize: "14px" }}>{discountPrice}</span>
+                    </div>
+                  ) : originalPrice ? (
+                    <span style={{ fontSize: "14px", fontWeight: 600 }}>
+                      {originalPrice}
+                    </span>
+                  ) : null;
                   const flashSaleLabel = img.flashSaleLabel;
                   const imageElement = (
                     <>
@@ -705,7 +768,9 @@ const MinimalHeader = ({
                         <span style={priceBadgeStyle}>{priceContent}</span>
                       ) : null}
                       {flashSaleLabel ? (
-                        <span style={flashSaleBadgeStyle}>{flashSaleLabel}</span>
+                        <span style={flashSaleBadgeStyle}>
+                          {flashSaleLabel}
+                        </span>
                       ) : null}
                       {img.wishlistSymbol ? (
                         <span style={wishlistBadgeStyle} aria-label="Wishlist">

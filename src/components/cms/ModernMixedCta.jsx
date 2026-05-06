@@ -6,9 +6,11 @@ import PropTypes from "prop-types";
 export const modernMixedCTADefaultProps = {
   id: undefined,
   sectionBackground: "#0f172a",
-  overlayColor: "linear-gradient(180deg, rgba(15,23,42,0.95), rgba(15,23,42,0.7))",
+  overlayColor:
+    "linear-gradient(180deg, rgba(15,23,42,0.95), rgba(15,23,42,0.7))",
   mainTitle: "Push your product to the next level",
-  subtitle: "End-to-end payments and financial management in a single, modern solution.",
+  subtitle:
+    "End-to-end payments and financial management in a single, modern solution.",
   description:
     "Meet the right platform to help realize your vision with confidence, transparency, and strategic insight.",
   accentPhrase: "next level",
@@ -84,7 +86,9 @@ const ModernMixedCTA = ({
   className,
 }) => {
   const textAccent = accentPhrase ? (
-    <span style={{ color: buttonBackground, fontWeight: 700 }}>{` ${accentPhrase}`}</span>
+    <span
+      style={{ color: buttonBackground, fontWeight: 700 }}
+    >{` ${accentPhrase}`}</span>
   ) : null;
 
   const containerStyle = {
@@ -160,15 +164,43 @@ const ModernMixedCTA = ({
       {overlayStyle && <div style={overlayStyle} aria-hidden />}
       <div style={cardStyle}>
         <div>
-          <p style={{ color: descriptionColor, margin: 0, textTransform: "uppercase", letterSpacing: "0.2em", fontSize: "12px" }}>
+          <p
+            style={{
+              color: descriptionColor,
+              margin: 0,
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              fontSize: "12px",
+            }}
+          >
             {subtitle}
           </p>
-          <h2 style={{ margin: "16px 0", fontSize: "38px", lineHeight: 1.2, fontWeight: 800 }}>
+          <h2
+            style={{
+              margin: "16px 0",
+              fontSize: "38px",
+              lineHeight: 1.2,
+              fontWeight: 800,
+            }}
+          >
             {mainTitle}
             {textAccent}
           </h2>
-          <p style={{ color: descriptionColor, fontSize: "16px", lineHeight: 1.6 }}>{description}</p>
-          <a href={buttonLink} target={buttonTarget} rel={buttonTarget === "_blank" ? "noopener noreferrer" : undefined} style={buttonStyle}>
+          <p
+            style={{
+              color: descriptionColor,
+              fontSize: "16px",
+              lineHeight: 1.6,
+            }}
+          >
+            {description}
+          </p>
+          <a
+            href={buttonLink}
+            target={buttonTarget}
+            rel={buttonTarget === "_blank" ? "noopener noreferrer" : undefined}
+            style={buttonStyle}
+          >
             {buttonText}
           </a>
         </div>
@@ -177,9 +209,23 @@ const ModernMixedCTA = ({
             imageCards.map((card) => (
               <div key={card.id} style={imageCardStyle}>
                 {card.src ? (
-                  <img src={card.src} alt={card.alt || card.caption || ""} style={{ width: "100%", height: "180px", objectFit: "cover" }} />
+                  <img
+                    src={card.src}
+                    alt={card.alt || card.caption || ""}
+                    style={{
+                      width: "100%",
+                      height: "180px",
+                      objectFit: "cover",
+                    }}
+                  />
                 ) : (
-                  <div style={{ width: "100%", height: "180px", background: "#1f2937" }} />
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "180px",
+                      background: "#1f2937",
+                    }}
+                  />
                 )}
                 {card.caption ? (
                   <p

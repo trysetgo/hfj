@@ -1,13 +1,39 @@
 "use client";
 
-
 export const dynamic = "force-dynamic";
 
-import React from 'react';
-import UniversalContactPageV1 from '../../src/components/cms/UniversalContactPageV1.jsx';
+import React from "react";
+import UniversalContactPageV1 from "../../src/components/cms/UniversalContactPageV1.jsx";
 
-export default function ListingsPage() { // Standardized page component name
-return (
-<><UniversalContactPageV1 map={JSON.parse(`{"title":"Visit or book a remote consultation","enabled":true,"embedUrl":"https://www.google.com/maps?q=San%20Francisco&output=embed","fallbackImage":"https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1600&q=84"}`)} form={JSON.parse(`{"title":"Send an inquiry","fields":[{"id":"name","type":"text","label":"Full name","required":true,"placeholder":"Jane Cooper"},{"id":"email","type":"email","label":"Email","required":true,"placeholder":"jane@company.com"},{"id":"company","type":"text","label":"Company","required":false,"placeholder":"Company name"},{"id":"budget","type":"select","label":"Budget","options":["Under $5k","$5k-$20k","$20k-$75k","$75k+"],"required":false,"placeholder":"Select range"},{"id":"message","type":"textarea","label":"Message","required":true,"placeholder":"Tell us what you are building..."}],"method":"POST","subtitle":"Share a few details and the right person will respond.","actionUrl":"","consentText":"By submitting, you agree to be contacted about your request.","submitLabel":"Send message","successText":"This demo form is ready for your site integration.","successTitle":"Message prepared"}`)} hero={JSON.parse(`{"body":"Give visitors every practical path to reach you while keeping the page polished, calm, and conversion-ready.","image":"https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=84","title":"Let us shape the right next step.","eyebrow":"Contact","imageAlt":"Team collaborating in a premium office","subtitle":"A premium, adaptable contact page for sales, support, partnerships, bookings, and local inquiries."}`)} global={JSON.parse(`{"radius":"26px","shadow":"0 24px 80px rgba(17, 24, 39, 0.12)","maxWidth":"1180px","fontFamily":"Inter, ui-sans-serif, system-ui","mutedColor":"#6b6258","accentColor":"#a47745","borderColor":"rgba(17, 24, 39, 0.12)","primaryColor":"#111827","successColor":"#166534","surfaceColor":"#ffffff","pageBackground":"#f7f4ee","sectionPadding":"80px 24px"}`)} support={JSON.parse(`{"items":[{"id":"sales","text":"For pricing, proposals, and implementation planning.","title":"Sales inquiry","drawerBody":"Route high-intent buyers to your sales process, qualification questions, booking links, or account team.","drawerTitle":"Sales inquiry details"},{"id":"support","text":"For active projects, billing, and product help.","title":"Customer support","drawerBody":"Use this drawer for support hours, priority channels, helpdesk links, and escalation details.","drawerTitle":"Support request details"},{"id":"partners","text":"For collaborations, suppliers, and media requests.","title":"Partnerships","drawerBody":"Describe what partnership requests you accept and what information your team needs up front.","drawerTitle":"Partnership details"}],"title":"Common paths","enabled":true}`)} footerCta={JSON.parse(`{"title":"Prefer a scheduled conversation?","enabled":true,"subtitle":"Add your booking link, calendar workflow, or concierge intake path.","buttonHref":"#","buttonLabel":"Book a time"}`)} locations={JSON.parse(`[{"id":"sf","city":"San Francisco","hours":"Mon-Fri, 9:00-18:00","image":"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=84","label":"West Coast Studio","address":"120 Market Street, San Francisco, CA"},{"id":"ny","city":"New York","hours":"By appointment","image":"https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=84","label":"Client Lounge","address":"88 Spring Street, New York, NY"}]`)} contactMethods={JSON.parse(`[{"id":"email","href":"mailto:hello@atelierco.com","icon":"mail","title":"Email","value":"hello@atelierco.com","actionLabel":"Send email","description":"For proposals, partnerships, and detailed project notes."},{"id":"phone","href":"tel:+15550149082","icon":"phone","title":"Call","value":"+1 (555) 014-9082","actionLabel":"Call now","description":"Speak with our client desk Monday through Friday."},{"id":"chat","href":"#","icon":"chat","title":"Live chat","value":"Average reply: 4 min","actionLabel":"Open chat","description":"Best for quick questions, support, and active accounts."}]`)}></UniversalContactPageV1></>
-);
-};
+export default function ListingsPage() {
+  return (
+    <>
+      <UniversalContactPageV1
+        map={JSON.parse(
+          `{"title":"Visit or book a remote consultation","enabled":true,"embedUrl":"https://www.google.com/maps?q=San%20Francisco&output=embed","fallbackImage":"https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1600&q=84"}`,
+        )}
+        form={JSON.parse(
+          `{"title":"Send an inquiry","fields":[{"id":"name","type":"text","label":"Full name","required":true,"placeholder":"Jane Cooper"},{"id":"email","type":"email","label":"Email","required":true,"placeholder":"jane@company.com"},{"id":"company","type":"text","label":"Company","required":false,"placeholder":"Company name"},{"id":"budget","type":"select","label":"Budget","options":["Under $5k","$5k-$20k","$20k-$75k","$75k+"],"required":false,"placeholder":"Select range"},{"id":"message","type":"textarea","label":"Message","required":true,"placeholder":"Tell us what you are building..."}],"method":"POST","subtitle":"Share a few details and the right person will respond.","actionUrl":"","consentText":"By submitting, you agree to be contacted about your request.","submitLabel":"Send message","successText":"This demo form is ready for your site integration.","successTitle":"Message prepared"}`,
+        )}
+        hero={JSON.parse(
+          `{"body":"Give visitors every practical path to reach you while keeping the page polished, calm, and conversion-ready.","image":"https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=84","title":"Let us shape the right next step.","eyebrow":"Contact","imageAlt":"Team collaborating in a premium office","subtitle":"A premium, adaptable contact page for sales, support, partnerships, bookings, and local inquiries."}`,
+        )}
+        global={JSON.parse(
+          `{"radius":"26px","shadow":"0 24px 80px rgba(17, 24, 39, 0.12)","maxWidth":"1180px","fontFamily":"Inter, ui-sans-serif, system-ui","mutedColor":"#6b6258","accentColor":"#a47745","borderColor":"rgba(17, 24, 39, 0.12)","primaryColor":"#111827","successColor":"#166534","surfaceColor":"#ffffff","pageBackground":"#f7f4ee","sectionPadding":"80px 24px"}`,
+        )}
+        support={JSON.parse(
+          `{"items":[{"id":"sales","text":"For pricing, proposals, and implementation planning.","title":"Sales inquiry","drawerBody":"Route high-intent buyers to your sales process, qualification questions, booking links, or account team.","drawerTitle":"Sales inquiry details"},{"id":"support","text":"For active projects, billing, and product help.","title":"Customer support","drawerBody":"Use this drawer for support hours, priority channels, helpdesk links, and escalation details.","drawerTitle":"Support request details"},{"id":"partners","text":"For collaborations, suppliers, and media requests.","title":"Partnerships","drawerBody":"Describe what partnership requests you accept and what information your team needs up front.","drawerTitle":"Partnership details"}],"title":"Common paths","enabled":true}`,
+        )}
+        footerCta={JSON.parse(
+          `{"title":"Prefer a scheduled conversation?","enabled":true,"subtitle":"Add your booking link, calendar workflow, or concierge intake path.","buttonHref":"#","buttonLabel":"Book a time"}`,
+        )}
+        locations={JSON.parse(
+          `[{"id":"sf","city":"San Francisco","hours":"Mon-Fri, 9:00-18:00","image":"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=84","label":"West Coast Studio","address":"120 Market Street, San Francisco, CA"},{"id":"ny","city":"New York","hours":"By appointment","image":"https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=84","label":"Client Lounge","address":"88 Spring Street, New York, NY"}]`,
+        )}
+        contactMethods={JSON.parse(
+          `[{"id":"email","href":"mailto:hello@atelierco.com","icon":"mail","title":"Email","value":"hello@atelierco.com","actionLabel":"Send email","description":"For proposals, partnerships, and detailed project notes."},{"id":"phone","href":"tel:+15550149082","icon":"phone","title":"Call","value":"+1 (555) 014-9082","actionLabel":"Call now","description":"Speak with our client desk Monday through Friday."},{"id":"chat","href":"#","icon":"chat","title":"Live chat","value":"Average reply: 4 min","actionLabel":"Open chat","description":"Best for quick questions, support, and active accounts."}]`,
+        )}
+      ></UniversalContactPageV1>
+    </>
+  );
+}

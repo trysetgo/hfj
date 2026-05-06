@@ -21,7 +21,8 @@ export const estatePromoBannerDefaultProps = {
   titleAccent: "FOR SALE",
   titleColor: "#0f172a",
   accentColor: "#4338ca",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula urna at est cursus, eget sodales elit venenatis.",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula urna at est cursus, eget sodales elit venenatis.",
   descriptionColor: "#475569",
   tagline: "Your Website Goes Here",
   taglineColor: "#6b7280",
@@ -241,7 +242,11 @@ const EstatePromoBanner = ({
                     key={link.id || link.label || link.icon}
                     href={link.href || "#"}
                     target={link.target || "_self"}
-                    rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+                    rel={
+                      link.target === "_blank"
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     title={link.label || "Share"}
                     style={socialButtonStyle}
                   >
@@ -262,7 +267,9 @@ const EstatePromoBanner = ({
                 }}
               >
                 {titleMain}{" "}
-                <span style={{ color: accentColor, display: "block" }}>{titleAccent}</span>
+                <span style={{ color: accentColor, display: "block" }}>
+                  {titleAccent}
+                </span>
               </p>
               <p
                 style={{
@@ -279,7 +286,9 @@ const EstatePromoBanner = ({
               <a
                 href={buttonHref || "#"}
                 target={buttonTarget || "_self"}
-                rel={buttonTarget === "_blank" ? "noopener noreferrer" : undefined}
+                rel={
+                  buttonTarget === "_blank" ? "noopener noreferrer" : undefined
+                }
                 style={buttonStyle}
               >
                 {buttonText}

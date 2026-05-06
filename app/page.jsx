@@ -17,7 +17,7 @@ export default function HomePage() {
         logoAlt="Fashion Storefront"
         logoText="Fashion Storefront"
         navLinks={JSON.parse(
-          `[{"id":"home","href":"/","text":"Home","target":"_self"},{"id":"work","href":"/products","text":"Products","target":"_self"},{"id":"services","href":"/services","text":"Services","target":"_self"},{"id":"contact","href":"/contact","text":"Contact","target":"_self"},{"id":"0e756d2a-396c-42f7-a5a9-955c01e03a81","href":"/listings","text":"Listings","target":"_self"}]`,
+          `[{"id":"home","href":"/","text":"Home","target":"_self"},{"id":"work","href":"/products","text":"Products","target":"_self"},{"id":"contact","href":"/contact","text":"Contact","target":"_self"},{"id":"0e756d2a-396c-42f7-a5a9-955c01e03a81","href":"/listings","text":"Listings","target":"_self"}]`,
         )}
         linkColor="#ffffff"
         textColor="#ffffff"

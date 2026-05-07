@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import ContactPageV1 from "./cms/ContactPageV1.jsx";
+import AboutUsPageV1 from "./cms/AboutUsPageV1.jsx";
 import UniversalContactPageV1 from "./cms/UniversalContactPageV1.jsx";
 import MinimalHeader from "./cms/MinimalHeader.jsx";
 import EstatePromoBanner from "./cms/EstatePromoBanner.jsx";
@@ -9,6 +11,8 @@ import ScrollAnimation from "./cms/ScrollAnimation.jsx";
 import ModernMixedCta from "./cms/ModernMixedCta.jsx";
 
 const LayoutRendererInternalComponentMap = {
+  ContactPageV1: ContactPageV1,
+  AboutUsPageV1: AboutUsPageV1,
   UniversalContactPageV1: UniversalContactPageV1,
   "Minimal Header": MinimalHeader,
   "Estate Promo Banner": EstatePromoBanner,
